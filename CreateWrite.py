@@ -2,10 +2,10 @@
 def create_file():
     try:
         file = open("Diary.txt", "x")
-        print("File Created Successfully!!!")
+        print("File 'Diary.txt' created successfully!!!")
         file.close()
     except FileExistsError:
-        print("File already Exist")
+        print("File 'Diary.txt' already exists!")
 
 #Append
 def append_entry():
@@ -13,7 +13,7 @@ def append_entry():
         date = input("Enter date: ")
         entry = input("Write your diary entry: ")
 
-        file = open("diary.txt", "a")
+        file = open("Diary.txt", "a")
         file.write(f"[{date}] {entry}\n")
         file.close()
 
@@ -25,7 +25,7 @@ def append_entry():
 #Read
 def read_entries():
     try:
-        file = open("diary.txt", "r")
+        file = open("Diary.txt", "r")
         lines = file.readlines()
 
         print("\n--- Diary Entries ---")
@@ -36,7 +36,7 @@ def read_entries():
         file.close()
 
     except FileNotFoundError:
-        print("Diary file not found.")
+        print("Diary entry not found.")
     except Exception as e:
         print("Error:", e)
 
@@ -44,10 +44,10 @@ def read_entries():
 def update_entry():
     try:
         date_to_update = input("Enter date to update: ")
-        file = open("diary.txt", "r")
+        file = open("Diary.txt", "r")
         lines = file.readlines()
         file.close()
-        file = open("diary.txt", "w")
+        file = open("Diary.txt", "w")
 
         found = False
         for line in lines:
@@ -66,7 +66,7 @@ def update_entry():
             print("Date not found.")
 
     except FileNotFoundError:
-        print("Diary file not found.")
+        print("Diary entry not found.")
     except Exception as e:
         print("Error:", e)
 
@@ -74,7 +74,7 @@ def update_entry():
 def search_entry():
     try:
         keyword = input("Enter keyword/date to search: ")
-        file = open("diary.txt", "r")
+        file = open("Diary.txt", "r")
         found = False
 
         for line in file:
@@ -87,7 +87,7 @@ def search_entry():
         file.close()
 
     except FileNotFoundError:
-        print("Diary file not found.")
+        print("Diary entry not found.")
     except Exception as e:
         print("Error:", e)
 
@@ -96,11 +96,11 @@ def delete_entry():
     try:
         date_to_delete = input("Enter date to delete: ")
 
-        file = open("diary.txt", "r")
+        file = open("Diary.txt", "r")
         lines = file.readlines()
         file.close()
 
-        file = open("diary.txt", "w")
+        file = open("Diary.txt", "w")
 
         found = False
         for line in lines:
@@ -117,7 +117,7 @@ def delete_entry():
             print("Date not found.")
 
     except FileNotFoundError:
-        print("Diary file not found.")
+        print("Diary entry not found.")
     except Exception as e:
         print("Error:", e)
 
@@ -128,7 +128,7 @@ create_file()
 
 while True:
     print("\n==== PERSONAL DIARY MENU ====")
-    print("1. Append Entry")
+    print("1. Add Entry")
     print("2. Read Entries")
     print("3. Update Entry")
     print("4. Search Entry")
@@ -151,4 +151,4 @@ while True:
         print("Exiting program...")
         break
     else:
-        print("Invalid choice.")
+        print("Invalid choice, please choose again.")
