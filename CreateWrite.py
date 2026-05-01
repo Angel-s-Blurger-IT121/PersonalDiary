@@ -5,3 +5,5 @@ def x_mode():
         file.close()
     except FileExistsError:
         print("File already Exist")
+
+random
